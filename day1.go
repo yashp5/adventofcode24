@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-func main() {
+func Day1() {
 	file, err := os.Open("in1.txt")
 	if err != nil {
 		panic(err)
@@ -34,14 +34,14 @@ func main() {
 		panic(err)
 	}
 
-	dist := part1(l1, l2)
+	dist := day1A(l1, l2)
 	fmt.Printf("%d\n", dist)
 
-	similarity := part2(l1, l2)
+	similarity := day1B(l1, l2)
 	fmt.Printf("%d\n", similarity)
 }
 
-func part1(l1 []int, l2 []int) int {
+func day1A(l1 []int, l2 []int) int {
 	slices.Sort(l1)
 	slices.Sort(l2)
 
@@ -53,9 +53,7 @@ func part1(l1 []int, l2 []int) int {
 	return dist
 }
 
-// This time, you'll need to figure out exactly how often each number from the left list appears in the right list.
-// Calculate a total similarity score by adding up each number in the left list after multiplying it by the number of times that number appears in the right list.
-func part2(l1 []int, l2 []int) int {
+func day1B(l1 []int, l2 []int) int {
 	similarity := 0
 	m := make(map[int]int)
 
